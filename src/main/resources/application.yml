@@ -1,0 +1,57 @@
+spring :
+  application:
+    name: munecting
+
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+  datasource:
+    url: jdbc:${DATASOURCE}://${HOST}:${PORT}/${TABLE}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      initialization-fail-timeout: 3600
+
+  mail:
+    debug: true
+    host: smtp.naver.com
+    port: 465
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            enable: true
+#    generate-unique-name: false
+#    url: jdbc:h2:mem:testdb
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password:
+
+
+#jwt:
+#  secret: vmfhaltmskdlstkfkdgodyroqkfwkdbalroqkfwkdbalaaaaaaaaaaaaaaaabbbbb
+#
+
+logging:
+  level:
+    org.hibernate.sql: debug
+
+
+naver:
+  id: ${MAIL_USERNAME}
+  password: ${MAIL_PASSWORD}
